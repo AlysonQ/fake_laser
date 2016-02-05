@@ -1,0 +1,16 @@
+<!--
+	2016.02.05
+	Alyson (Ying-Hua) Chen
+ -->
+<launch>
+	  <include file="$(find fake_laser)/launch/hectormapping.launch" />
+	  <!-- Open fake laser node-->
+ 			<node name="fake_laser_node" 	pkg="fake_laser" type="fake_laser_node" output="screen" />
+ 		<!-- Open hector_costmap  node-->
+ 			<node name="hector_costmap" 	pkg="hector_costmap" type="hector_costmap"  />
+  		<!-- Open hector_costmap  node-->
+ 			<!-- <node name="exploration_planner_node " 	pkg="hector_exploration_node" type="exploration_planner_node"  />-->
+ 		<!-- Open rviz-->
+			<node name="rviz" pkg="rviz" type="rviz" args="-d $(find fake_laser)/rviz/slam.rviz" />
+</launch>
+
